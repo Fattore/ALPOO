@@ -1,0 +1,233 @@
+Informações sobre a versão
+Microsoft JDBC Driver 8.2 para SQL Server
+Março de 2020
+
+------------
+INTRODUÇÃO
+------------
+Este arquivo contém as últimas novidades e outras informações importantes que complementam a documentação do Microsoft JDBC 
+Documentação do Driver 8.2 para SQL Server. Você deve ler este arquivo inteiramente antes de instalar 
+o driver JDBC.
+
+Seus comentários são muito importantes para nós e procuraremos responder a eles de maneira 
+oportuna. Para obter informações sobre como fornecer comentários usando os blogs do driver JDBC e os fóruns online, 
+confira a página do Microsoft JDBC Driver 8.2 para SQL Server em https://aka.ms/mssql-jdbc-feedback
+
+
+------------
+INSTALAÇÃO
+------------
+As instruções de instalação do driver JDBC estão no arquivo install.txt. Consulte esse arquivo para 
+obter informações sobre a instalação do driver JDBC nos sistemas operacionais Windows, Linux e macOS.
+
+
+---------------------------
+SISTEMAS OPERACIONAIS COMPATÍVEIS
+---------------------------
+Os sistemas operacionais compatíveis com o Microsoft JDBC Driver 8.2 para SQL Server são:
+  Windows Server 2012
+  Windows Server 2012 R2
+  Windows Server 2016
+  Windows Server 2019
+  Windows 8.1
+  Windows 10
+  Linux
+  macOS
+
+A lista acima é um exemplo de alguns sistemas operacionais compatíveis. O driver JDBC foi desenvolvido 
+para funcionar em qualquer sistema operacional que dê suporte ao uso de uma JVM (Máquina Virtual Java). 
+
+No entanto, a compatibilidade e o suporte foram testados somente nos sistemas operacionais mais recentes do Linux e do macOS (Ubuntu 19.10, Ubuntu 18.04,
+CentOS 7, SUSE 12, macOS 10.15).
+
+
+-----------------------
+VERSÕES DO JAVA COM SUPORTE
+-----------------------
+O Microsoft JDBC Driver 8.2 para SQL Server foi testado e é compatível com versões mais recentes dos builds do JDK (Kit 
+de Desenvolvimento Java) do Open JDK e Zulu em sistemas operacionais com suporte, conforme mencionado acima.
+As versões de família abaixo da Biblioteca do Sistema JRE (Java Runtime Environment) têm suporte:
+
+  ----------------------------------------------------------------------
+  Versão da Família JRE | Driver JAR para Suporte Máximo
+  ----------------------------------------------------------------------
+  8+                 | mssql-jdbc-8.2.2.jre8.jar
+  11+                | mssql-jdbc-8.2.2.jre11.jar
+  13+                | mssql-jdbc-8.2.2.jre13.jar
+
+
+----------------
+CONTEÚDO DA VERSÃO
+----------------
+O zip ou o arquivo tar do Microsoft JDBC Driver 8.2 para SQL Server desempacota os seguintes arquivos 
+nos locais especificados, relativo ao diretório de instalação selecionado:
+
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\install.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\release.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\license.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\thirdpartynotices.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-8.2.2.jre8.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-8.2.2.jre11.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-8.2.2.jre13.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\auth\x86\mssql-jdbc_auth-8.2.2.x86.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\auth\x64\mssql-jdbc_auth-8.2.2.x64.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\samples\<arquivos de exemplos...>
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\xa_install.sql
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\x86\sqljdbc_xa.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\x64\sqljdbc_xa.dll
+
+Para obter informações detalhadas sobre cada componente, veja a documentação online,
+Documentação do Microsoft JDBC Driver para SQL Server: 
+https://msdn.microsoft.com/en-us/library/dn197850(v=sql.10).aspx
+
+
+-------------
+DOCUMENTAÇÃO
+-------------
+Essas informações de versão, as instruções de instalação e os termos de licença estão incluídos neste pacote. 
+Todas as outras documentações podem ser encontradas online.
+
+Observe que os arquivos de ajuda offline foram descontinuados. 
+
+
+---------
+ARQUIVOS JAR
+---------
+Para compatibilidade com versões anteriores e possíveis cenários de atualização, o JDBC Driver 8.2 inclui 
+três bibliotecas de classes JAR em cada pacote de instalação:
+	mssql-jdbc-8.2.2.jre8.jar
+	mssql-jdbc-8.2.2.jre11.jar
+	mssql-jdbc-8.2.2.jre13.jar
+
+
+----------------------
+ARQUIVOS ESPECÍFICOS DE RECURSO
+----------------------
+O Azure Active Directory e os componentes de Autenticação Integrada (no Windows) estão incluídos 
+no diretório “auth”.
+
+Os componentes de transação distribuída do JDBC estão incluídos no diretório “xa”.
+
+
+--------------------
+DEPENDÊNCIAS DE RECURSO
+--------------------
+Alguns recursos no Microsoft JDBC Driver 8.2 para SQL Server dependem de bibliotecas externas 
+como listado abaixo:
+
+1. Usando “Always Encrypted” com o provedor do Azure Key Vault
+   Bibliotecas dependentes: azure-keyvault (versão 1.2.2), adal4j (versão 1.6.4),
+   e client-runtime (versão 1.7.0)
+
+2. Usando 'Always Encrypted com enclaves seguros'
+   Bibliotecas dependentes: com.google.code.gson (versão 2.8.6)
+   e org.bouncycastle (versão 1.64). A org.bouncycastle só é necessária para o JDK 8.
+ 
+3. Usando “Autenticação Integrada do Azure Active Directory” nos sistemas operacionais Windows, Linux e macOS
+   Bibliotecas dependentes: adal4j (versão 1.6.4) e client-runtime (versão 1.7.0)
+   
+4. Usando 'useFmtOnly' para recuperar metadados de parâmetro
+   Bibliotecas dependentes: antlr-runtime (versão 4.7.2)
+   
+Informações detalhadas sobre a inclusão dessas bibliotecas dependentes em um aplicativo Java padrão 
+ou um aplicativo Maven podem ser encontradas aqui: https://go.microsoft.com/fwlink/?linkid=867575
+
+--------------------
+ALTERAÇÃO DE VERSÃO PRINCIPAL
+--------------------
+Uma alteração da falha da API de driver foi introduzida nesta versão estável junto com a implementação do recurso
+'Always Encrypted com enclaves seguros'. Um novo método público abstrato foi introduzido na
+classe 'SQLServerColumnEncryptionKeyStoreProvider', que precisava de uma alteração de versão principal.
+
+Além disso, com a renomeação de sqljdbc_auth.dll para mssql-jdbc_auth-8.2.2.<arch>.dll, os usuários que usavam
+sqljdbc_auth.dll anteriormente deverão fazer a atualização de sqljdbc_auth.dll para mssql-jdbc_auth-8.2.2.<arch>.dll.
+
+-------
+SAMPLES
+-------
+Os aplicativos de exemplo que demonstram vários recursos do driver JDBC estão incluídos no diretório
+"samples". Para obter mais detalhes sobre cada exemplo e como executá-los, veja a documentação 
+online.
+
+
+-----------
+LISTA DE ALTERAÇÕES
+-----------
+Alterações da 8.2.1.0 para a 8.2.2.0:
+– Opção adicionada para configurar a lista de pontos de extremidade confiáveis do Azure Key Vault.
+
+Alterações da 8.2.0.0 para a 8.2.1.0:
+Correções de bug:
+- Correção de um possível problema 'NullPointerException' ao recuperar dados do tipo 'java.time.LocalTime' ou 'java.time.LocalDate' com 'SQLServerResultSet.getObject()'.
+
+Alterações da 7.4.1.0 para a 8.2.0.0:
+– Suporte para Always Encrypted adicionado com enclaves seguros. 
+– Suporte para JAVA 13 adicionado. 
+– 'ISQLServerBulkData' adicionado para remover detalhes de implementação de 'ISQLServerBulkRecord'. 
+– Suporte para nuvens nacionais do Azure adicionado ao usar o Azure Key Vault. 
+– Compatibilidade com versões anteriores adicionada para chamar 'SQLServerClob.length()' em colunas nvarchar. 
+– Modelo interno atualizado para visibilidade pública da classe 'SQLServerSpatialDatatype'. 
+– APIs 'ISQLServerBulkData' atualizadas para gerar 'SQLException' em vez de 'SQLServerException'. 
+– 'SQLServerConnection.State' atualizado para volátil. 
+– Os métodos 'hashCode()' e 'equals()' foram implementados para 'SQLServerDataTable' e 'SQLServerDataColumn'. 
+
+Aprimoramentos: 
+– Desempenho de métodos getter de tipo de dados temporal aprimorado, substituindo 'Calendar' por 'LocalDateTime'. 
+– Desempenho de pesquisas de nome de coluna aprimorado. 
+– Desempenho de 'CallableStatement' e 'ParameterMetaData' ao usar nomes de procedimentos que contêm caracteres curinga aprimorados. 
+
+Correções de bug: 
+– Corrigido um possível problema de desempenho criado por espaços à direita em consultas 'PreparedStatement'. 
+– Corrigido um problema com chamadas Always Encrypted nativas não sincronizadas.
+– Corrigida uma 'NullPointerException' potencial no método 'SQLServerDataColumn.Equals()'. 
+– Corrigido um problema com BulkCopy quando a origem é char/varchar Unicode e o destino é nchar/nvarchar. 
+– Corrigido um problema com 'SQLServerDatabaseMetaData.getColumns()' em que, ao usar no SQL Data Warehouse do Azure, apenas a primeira coluna era retornada. 
+– Corrigido um problema em que 'SQLServerDatabaseMetaData.getImportedKeys()' falhava quando usado no SQL Data Warehouse do Azure. 
+– Corrigido um problema em que 'Geography.STAsBinary()' retornava NULL para um ponto único. 
+– Corrigido um problema em que 'DatabaseMetaData.getImportedKeys()' retornava linhas duplicadas. 
+– Corrigido um problema com a senha trustStore, que era removida cedo demais para conexões XA. 
+– Corrigido um problema em que 'SQLServerDatabaseMetada.getColumns()' não realizava o escape de caracteres curinga. 
+– Foram removidos espaços extras nos valores retornados 'SQLServerDatabaseMetaData.getNumericFunctions()' e 'SQLServerDatabaseMetaData.getStringFunctions()'. 
+
+------------
+PROBLEMAS CONHECIDOS
+------------
+A seguir, problemas conhecidos com o Microsoft JDBC Driver 8.2 para SQL Server:
+
+1) REMOÇÃO DE CONEXÕES COM O SQL DO AZURE
+
+Ao se conectar ao SQL Azure, conexões ociosas podem ser finalizadas por um componente de rede (como um 
+firewall) após um período de inatividade. Para evitar a remoção de conexões ociosas por um componente de rede, 
+as seguintes configurações do registro (ou seus equivalentes não Windows) devem ser definidas no sistema 
+operacional em que o driver foi carregado:
+           
+Configuração do Registro                                                                     Valor recomendado
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime            30000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval         1000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxDataRetransmission  10
+
+2) QUANDO USAR TVP COM SQL_VARIANT 
+
+2.a) PARA VALORES DE DATA
+
+Ao usar TVP para popular uma tabela que contém os valores datetime/smalldatetime/date armazenados na coluna sql_variant, 
+chamar getDateTime()/getSmallDateTime()/getDate() em ResultSet não funciona e gera a seguinte exceção:
+
+	Não é possível converter java.lang.String em java.sql.Timestamp
+
+Solução alternativa: use getString() ou getObject().
+
+2.b) USANDO TVP COM SQL_VARIANT PARA VALORES NULL
+
+Se você estiver usando um TVP para popular uma tabela e enviar um valor NULL para o tipo de coluna sql_variant, encontrará
+uma exceção, uma vez que a inserção do valor NULL com o tipo de coluna sql_Variant no TVP não é compatível no momento.
+
+
+3) AO USAR A AUTENTICAÇÃO NTLM
+
+No momento, não é possível habilitar a Proteção Estendida e as conexões criptografadas ao mesmo tempo.
+
+4) AO USAR useFmtOnly
+
+Há alguns problemas com o recurso, causados por deficiências na lógica de análise do SQL.
+Confira https://docs.microsoft.com/en-us/sql/connect/jdbc/using-usefmtonly para saber mais detalhes e ver sugestões de soluções alternativas.
